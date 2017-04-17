@@ -8,5 +8,9 @@ RUN unzip elixir-v1.4.0.zip
 WORKDIR /elixir-1.4.0
 RUN make
 RUN make install
+RUN make clean
+WORKDIR /
+RUN rm /elixir-1.4.0 -rf
+RUN rm /elixir-v1.4.0.zip
 
 CMD ["iex"]
