@@ -6,11 +6,7 @@ RUN curl -o elixir-v1.4.0.zip https://codeload.github.com/elixir-lang/elixir/zip
 
 RUN unzip elixir-v1.4.0.zip
 WORKDIR /elixir-1.4.0
-RUN make
-RUN make install
-RUN make clean
+RUN make && make install && make clean
 WORKDIR /
-RUN rm /elixir-1.4.0 -rf
-RUN rm /elixir-v1.4.0.zip
-
+RUN rm /elixir-1.4.0 /elixir-v1.4.0.zip -rf
 CMD ["iex"]
